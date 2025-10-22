@@ -1,0 +1,57 @@
+"use client";
+
+import { useAuth } from "@/hooks/use-auth";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
+import { Badge } from "../ui/badge";
+import { Switch } from "../ui/switch";
+import { Label } from "../ui/label";
+
+export default function DoctorDashboard() {
+  const { profile } = useAuth();
+
+  return (
+    <div>
+      <div className="flex justify-between items-start mb-8">
+        <div>
+          <h1 className="text-3xl font-bold font-headline mb-2">
+            Welcome, Dr. {profile?.fullName.split(" ").slice(1).join(" ")}!
+          </h1>
+          <p className="text-muted-foreground">
+            Here&apos;s your professional dashboard.
+          </p>
+        </div>
+        <div className="flex items-center space-x-2">
+            <Switch id="availability" />
+            <Label htmlFor="availability">Available for consultations</Label>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <Card className="lg:col-span-2">
+          <CardHeader>
+            <CardTitle>Patient Inquiries</CardTitle>
+            <CardDescription>
+              Respond to new and ongoing patient conversations.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="text-center text-muted-foreground py-16">
+              <p>No new patient inquiries at the moment.</p>
+            </div>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Scheduled Appointments</CardTitle>
+            <CardDescription>Your upcoming appointments.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="text-center text-muted-foreground py-16">
+              <p>No appointments scheduled.</p>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+}

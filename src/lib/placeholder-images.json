@@ -1,3 +1,52 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero",
+      "description": "A diverse group of happy and healthy people",
+      "imageUrl": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxkaXZlcnNlJTIwcGVvcGxlfGVufDB8fHx8MTc2MTA5ODE3OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "diverse people"
+    },
+    {
+      "id": "1",
+      "description": "A smiling and professional doctor.",
+      "imageUrl": "https://images.unsplash.com/photo-1619416284511-9daa6d7ea19f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxkb2N0b3IlMjBzbWlsaW5nfGVufDB8fHx8MTc2MTA3NTQ1MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "doctor smiling"
+    },
+    {
+      "id": "2",
+      "description": "A friendly robot assistant in a medical setting.",
+      "imageUrl": "https://images.unsplash.com/photo-1560724797-bf78e981d20d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxyb2JvdCUyMG1lZGljYWx8ZW58MHx8fHwxNzYxMTU5NTgyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "robot medical"
+    },
+    {
+      "id": "3",
+      "description": "Abstract representation of data security and privacy.",
+      "imageUrl": "https://images.unsplash.com/photo-1548092372-0d1bd40894a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkYXRhJTIwc2VjdXJpdHl8ZW58MHx8fHwxNzYxMTM3NzAyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "data security"
+    },
+    {
+      "id": "team1",
+      "description": "Headshot of Testimony Edem",
+      "imageUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwcm9mZXNzaW9uYWwlMjBtYW58ZW58MHx8fHwxNzYxMDU4MjE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional man"
+    },
+    {
+      "id": "team2",
+      "description": "Headshot of Jane Doe",
+      "imageUrl": "https://images.unsplash.com/photo-1573497019236-17f8177b81e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjB3b21hbnxlbnwwfHx8fDE3NjExMDM1Njh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional woman"
+    },
+    {
+      "id": "team3",
+      "description": "Headshot of John Smith",
+      "imageUrl": "https://images.unsplash.com/photo-1725866546799-4cc16f6cba23?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtYW4lMjBzbWlsaW5nfGVufDB8fHx8MTc2MTExNzk3Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "man smiling"
+    },
+    {
+      "id": "team4",
+      "description": "Headshot of Emily White",
+      "imageUrl": "https://images.unsplash.com/photo-1592621385612-4d7129426394?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3b21hbiUyMHNtaWxpbmd8ZW58MHx8fHwxNzYxMTQ2NDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman smiling"
+    }
+  ]
 }
