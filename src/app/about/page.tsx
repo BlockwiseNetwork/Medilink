@@ -59,6 +59,7 @@ export default function AboutPage() {
             <p>Boluwatife Adebayo</p>
             <p>Aisha Ibrahim</p>
             <p>Efe Okoro</p>
+            <p>Testimony Edem</p>
           </div>
         </section>
 
