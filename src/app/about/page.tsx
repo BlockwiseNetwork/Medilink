@@ -8,7 +8,6 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import placeHolderImages from '@/lib/placeholder-images.json';
 
 const teamMembers = [
-  { name: 'Dr. Chidinma Onuoha', role: 'Medical Director', imageId: 'team1' },
   { name: 'Boluwatife Adebayo', role: 'Lead Software Engineer', imageId: 'team2' },
   { name: 'Aisha Ibrahim', role: 'AI & Backend Specialist', imageId: 'team3' },
   { name: 'Efe Okoro', role: 'Product & UX Designer', imageId: 'team4' },
@@ -56,7 +55,7 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-headline font-bold text-gray-800 dark:text-white">Meet the Team</h2>
             <p className="mt-4 text-gray-600 dark:text-gray-400">The passionate minds behind MediLink.</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
             {teamMembers.map((member) => {
               const memberImage = placeHolderImages.placeholderImages.find(p => p.id === member.imageId);
               return (
