@@ -4,8 +4,8 @@ import { useLanguage } from "@/hooks/use-language";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Paperclip, Send } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
-import { useFormState, useFormStatus } from "react-dom";
+import { useEffect, useRef, useState, useActionState } from "react";
+import { useFormStatus } from "react-dom";
 import { handleChatMessage } from "@/app/dashboard/chatbot/actions";
 import { Message } from "@/lib/definitions";
 import Spinner from "../ui/spinner";
@@ -31,7 +31,7 @@ const initialState = {
 export default function ChatInterface() {
   const { language } = useLanguage();
   const [messages, setMessages] = useState<Message[]>([]);
-  const [formState, formAction] = useFormState(handleChatMessage, initialState);
+  const [formState, formAction] = useActionState(handleChatMessage, initialState);
   const formRef = useRef<HTMLFormElement>(null);
   const { pending } = useFormStatus();
   const scrollAreaRef = useRef<HTMLDivElement>(null);
