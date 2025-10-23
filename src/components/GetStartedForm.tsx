@@ -15,6 +15,7 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Spinner from "./ui/spinner";
+import Link from "next/link";
 
 const formSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email address." }),
@@ -22,6 +23,7 @@ const formSchema = z.object({
 
 export default function GetStartedForm() {
   const [loading, setLoading] = useState(false);
+  const [isFormVisible, setFormVisible] = useState(false);
   const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -43,6 +45,19 @@ export default function GetStartedForm() {
     setLoading(false);
   }
 
+  if (!isFormVisible) {
+    return (
+        <div className="flex flex-col sm:flex-row gap-4 items-center">
+             <Button size="lg" className="w-full sm:w-auto" onClick={() => setFormVisible(true)}>
+                Get Started
+             </Button>
+             <Button size="lg" className="w-full sm:w-auto" variant="outline" asChild>
+                <Link href="/dashboard">Continue as Guest</Link>
+             </Button>
+        </div>
+    );
+  }
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="flex w-full items-start space-x-2">
@@ -60,7 +75,7 @@ export default function GetStartedForm() {
         />
         <Button type="submit" size="lg" className="h-11" disabled={loading}>
           {loading && <Spinner className="mr-2" />}
-          Get Started
+          Submit
         </Button>
       </form>
     </Form>

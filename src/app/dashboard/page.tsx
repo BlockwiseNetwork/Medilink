@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 export default function DashboardPage() {
     const [userEmail, setUserEmail] = useState<string | null>(null);
-    const [userName, setUserName] = useState<string>('there');
+    const [userName, setUserName] = useState<string>('Guest');
 
     useEffect(() => {
         const email = localStorage.getItem('userEmail');
@@ -25,7 +25,7 @@ export default function DashboardPage() {
             Welcome, {userName}!
         </h1>
         <p className="text-muted-foreground mb-8">
-            Here&apos;s your personal health dashboard.
+            { userName === 'Guest' ? 'Explore the dashboard and get started with your health journey.' : "Here's your personal health dashboard." }
         </p>
         <PatientDashboard />
     </div>
