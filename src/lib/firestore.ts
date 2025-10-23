@@ -65,6 +65,7 @@ export const seedInitialData = async () => {
             { name: "Dr. Funmilayo Adebayo", specialty: "Dermatologist", city: "Abuja", rating: 4.7, contact: "08034567890" },
             { name: "Dr. Emeka Eze", specialty: "Neurologist", city: "Uyo", rating: 4.6, contact: "08045678901" },
             { name: "Dr. Halima Bello", specialty: "Gynecologist", city: "Kano", rating: 4.8, contact: "08056789012" },
+            { name: "Dr. Oluwaseun Folarin", specialty: "Orthopedist", city: "Ibadan", rating: 4.7, contact: "08067890123" },
         ];
 
         demoDoctors.forEach(doctor => {

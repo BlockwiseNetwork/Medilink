@@ -8,10 +8,10 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import placeHolderImages from '@/lib/placeholder-images.json';
 
 const teamMembers = [
-  { name: 'Testimony Edem', role: 'Project Lead & Full-Stack Developer', imageId: 'team1' },
-  { name: 'Jane Doe', role: 'Frontend Specialist', imageId: 'team2' },
-  { name: 'John Smith', role: 'AI & Backend Engineer', imageId: 'team3' },
-  { name: 'Emily White', role: 'UI/UX Designer', imageId: 'team4' },
+  { name: 'Dr. Chidinma Onuoha', role: 'Medical Director', imageId: 'team1' },
+  { name: 'Boluwatife Adebayo', role: 'Lead Software Engineer', imageId: 'team2' },
+  { name: 'Aisha Ibrahim', role: 'AI & Backend Specialist', imageId: 'team3' },
+  { name: 'Efe Okoro', role: 'Product & UX Designer', imageId: 'team4' },
 ];
 
 export default function AboutPage() {
