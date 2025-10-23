@@ -12,6 +12,7 @@ export interface Doctor {
     city: string;
     rating: number;
     contact: string;
+    imageId?: string;
 }
 
 export interface Message {

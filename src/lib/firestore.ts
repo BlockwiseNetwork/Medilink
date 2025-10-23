@@ -60,12 +60,12 @@ export const seedInitialData = async () => {
         console.log("Doctors collection is empty, seeding data...");
         const batch = writeBatch(db);
         const demoDoctors: Omit<Doctor, 'id'>[] = [
-            { name: "Dr. Adaobi Nwosu", specialty: "Cardiologist", city: "Uyo", rating: 4.8, contact: "08012345678" },
-            { name: "Dr. Chibuzor Okafor", specialty: "Pediatrician", city: "Lagos", rating: 4.9, contact: "08023456789" },
-            { name: "Dr. Funmilayo Adebayo", specialty: "Dermatologist", city: "Abuja", rating: 4.7, contact: "08034567890" },
-            { name: "Dr. Emeka Eze", specialty: "Neurologist", city: "Uyo", rating: 4.6, contact: "08045678901" },
-            { name: "Dr. Halima Bello", specialty: "Gynecologist", city: "Kano", rating: 4.8, contact: "08056789012" },
-            { name: "Dr. Oluwaseun Folarin", specialty: "Orthopedist", city: "Ibadan", rating: 4.7, contact: "08067890123" },
+            { name: "Dr. Adaobi Nwosu", specialty: "Cardiologist", city: "Uyo", rating: 4.8, contact: "08012345678", imageId: "doctor1" },
+            { name: "Dr. Chibuzor Okafor", specialty: "Pediatrician", city: "Lagos", rating: 4.9, contact: "08023456789", imageId: "doctor2" },
+            { name: "Dr. Funmilayo Adebayo", specialty: "Dermatologist", city: "Abuja", rating: 4.7, contact: "08034567890", imageId: "doctor3" },
+            { name: "Dr. Emeka Eze", specialty: "Neurologist", city: "Uyo", rating: 4.6, contact: "08045678901", imageId: "doctor4" },
+            { name: "Dr. Halima Bello", specialty: "Gynecologist", city: "Kano", rating: 4.8, contact: "08056789012", imageId: "doctor5" },
+            { name: "Dr. Oluwaseun Folarin", specialty: "Orthopedist", city: "Ibadan", rating: 4.7, contact: "08067890123", imageId: "doctor6" },
         ];
 
         demoDoctors.forEach(doctor => {

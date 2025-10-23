@@ -25,12 +25,6 @@
       "imageHint": "data security"
     },
     {
-      "id": "team1",
-      "description": "Headshot of Dr. Chidinma Onuoha",
-      "imageUrl": "https://images.unsplash.com/photo-1551069652-3afe1b4d5a34?q=80&w=1974&auto=format&fit=crop",
-      "imageHint": "black woman doctor"
-    },
-    {
       "id": "team2",
       "description": "Headshot of Boluwatife Adebayo",
       "imageUrl": "https://images.unsplash.com/photo-1628890920690-9e29d0019b9b?q=80&w=1974&auto=format&fit=crop",
@@ -47,6 +41,42 @@
       "description": "Headshot of Efe Okoro",
       "imageUrl": "https://images.unsplash.com/photo-1599335607092-b436534ca28d?q=80&w=1974&auto=format&fit=crop",
       "imageHint": "black man designer"
+    },
+    {
+      "id": "doctor1",
+      "description": "Professional headshot of a Black female doctor.",
+      "imageUrl": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=1964&auto=format&fit=crop",
+      "imageHint": "black female doctor"
+    },
+    {
+      "id": "doctor2",
+      "description": "Professional headshot of a Black male doctor.",
+      "imageUrl": "https://images.unsplash.com/photo-1537368910025-7003507965b6?q=80&w=1935&auto=format&fit=crop",
+      "imageHint": "black male doctor"
+    },
+    {
+      "id": "doctor3",
+      "description": "Friendly headshot of a Black female doctor.",
+      "imageUrl": "https://images.unsplash.com/photo-1623854767673-f214234558e8?q=80&w=1964&auto=format&fit=crop",
+      "imageHint": "black female doctor"
+    },
+    {
+      "id": "doctor4",
+      "description": "Smiling headshot of a Black male doctor.",
+      "imageUrl": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=1974&auto=format&fit=crop",
+      "imageHint": "black male doctor"
+    },
+    {
+      "id": "doctor5",
+      "description": "Headshot of a Black female doctor with a stethoscope.",
+      "imageUrl": "https://images.unsplash.com/photo-1612531385447-aa75a5d70883?q=80&w=1964&auto=format&fit=crop",
+      "imageHint": "black female doctor"
+    },
+    {
+      "id": "doctor6",
+      "description": "Headshot of a Black male doctor in scrubs.",
+      "imageUrl": "https://images.unsplash.com/photo-1666214278586-7b58a1a31f79?q=80&w=1974&auto=format&fit=crop",
+      "imageHint": "black male doctor"
     }
   ]
 }
