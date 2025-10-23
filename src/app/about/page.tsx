@@ -53,23 +53,12 @@ export default function AboutPage() {
         <section id="team" className="mt-20">
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-headline font-bold text-gray-800 dark:text-white">Meet the Team</h2>
-            <p className="mt-4 text-gray-600 dark:text-gray-400">The passionate minds behind MediLink.</p>
+             <p className="mt-4 text-gray-600 dark:text-gray-400">The passionate minds behind MediLink.</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-            {teamMembers.map((member) => {
-              const memberImage = placeHolderImages.placeholderImages.find(p => p.id === member.imageId);
-              return (
-              <Card key={member.name} className="text-center">
-                <CardContent className="pt-6">
-                  <Avatar className="w-24 h-24 mx-auto mb-4">
-                    {memberImage && <AvatarImage src={memberImage.imageUrl} alt={member.name} data-ai-hint={memberImage.imageHint} />}
-                    <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
-                  </Avatar>
-                  <h3 className="text-lg font-bold font-headline">{member.name}</h3>
-                  <p className="text-primary dark:text-accent">{member.role}</p>
-                </CardContent>
-              </Card>
-            )})}
+          <div className="mt-8 text-center text-gray-700 dark:text-gray-300">
+            <p>Boluwatife Adebayo</p>
+            <p>Aisha Ibrahim</p>
+            <p>Efe Okoro</p>
           </div>
         </section>
 
