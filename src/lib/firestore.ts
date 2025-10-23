@@ -56,24 +56,26 @@ export const seedInitialData = async () => {
     const doctorsCollection = collection(db, 'doctors');
     const snapshot = await getDocs(doctorsCollection);
 
-    if (snapshot.empty) {
-        console.log("Doctors collection is empty, seeding data...");
+    // For this app, we will clear and re-seed data on every load for demo purposes.
+    if (!snapshot.empty) {
         const batch = writeBatch(db);
-        const demoDoctors: Omit<Doctor, 'id'>[] = [
-            { name: "Dr. Adaobi Nwosu", specialty: "Cardiologist", city: "Uyo", rating: 4.8, contact: "08012345678", imageId: "doctor1" },
-            { name: "Dr. Chibuzor Okafor", specialty: "Pediatrician", city: "Lagos", rating: 4.9, contact: "08023456789", imageId: "doctor2" },
-            { name: "Dr. Funmilayo Adebayo", specialty: "Dermatologist", city: "Abuja", rating: 4.7, contact: "08034567890", imageId: "doctor3" },
-            { name: "Dr. Emeka Eze", specialty: "Neurologist", city: "Uyo", rating: 4.6, contact: "08045678901", imageId: "doctor4" },
-            { name: "Dr. Halima Bello", specialty: "Gynecologist", city: "Kano", rating: 4.8, contact: "08056789012", imageId: "doctor5" },
-            { name: "Dr. Oluwaseun Folarin", specialty: "Orthopedist", city: "Ibadan", rating: 4.7, contact: "08067890123", imageId: "doctor6" },
-        ];
-
-        demoDoctors.forEach(doctor => {
-            const docRef = doc(doctorsCollection);
-            batch.set(docRef, doctor);
+        snapshot.docs.forEach(doc => {
+            batch.delete(doc.ref);
         });
-
         await batch.commit();
-        console.log("Demo doctors have been added to Firestore.");
     }
+    
+    console.log("Seeding new doctor data...");
+    const batch = writeBatch(db);
+    const demoDoctors: Omit<Doctor, 'id'>[] = [
+        { name: "Dr. Ime Umoh", specialty: "General Practitioner", city: "Uyo", rating: 4.9, contact: "08012345678" },
+    ];
+
+    demoDoctors.forEach(doctor => {
+        const docRef = doc(doctorsCollection);
+        batch.set(docRef, doctor);
+    });
+
+    await batch.commit();
+    console.log("Demo doctors have been added to Firestore.");
 };

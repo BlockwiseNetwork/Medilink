@@ -2,8 +2,6 @@ import { Doctor } from "@/lib/definitions";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Star, MapPin } from "lucide-react";
-import placeHolderImages from '@/lib/placeholder-images.json';
-import Image from "next/image";
 
 type DoctorCardProps = {
   doctor: Doctor;
@@ -14,17 +12,10 @@ export default function DoctorCard({ doctor }: DoctorCardProps) {
     return name.split(" ").map((n) => n[0]).join("").toUpperCase();
   };
 
-  const doctorImage = placeHolderImages.placeholderImages.find(p => p.id === doctor.imageId);
-
   return (
     <Card>
       <CardHeader className="flex flex-row items-center gap-4">
         <Avatar className="h-16 w-16">
-          {doctorImage ? (
-            <AvatarImage src={doctorImage.imageUrl} alt={doctor.name} />
-          ) : (
-            <AvatarImage src={`https://i.pravatar.cc/150?u=${doctor.id}`} />
-          )}
           <AvatarFallback>{getInitials(doctor.name)}</AvatarFallback>
         </Avatar>
         <div>

@@ -16,6 +16,7 @@ export default function PatientDashboard() {
 
   useEffect(() => {
     async function fetchDoctors() {
+      setLoading(true);
       try {
         await seedInitialData(); // Ensure demo data exists
         const fetchedDoctors = await getDoctors();
