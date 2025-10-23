@@ -1,6 +1,5 @@
 "use client";
 
-import { useAuth } from "@/hooks/use-auth";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { MessageSquare, Stethoscope, Wallet } from "lucide-react";
@@ -12,7 +11,6 @@ import Spinner from "../ui/spinner";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 
 export default function PatientDashboard() {
-  const { profile } = useAuth();
   const [doctors, setDoctors] = useState<Doctor[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -33,13 +31,6 @@ export default function PatientDashboard() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold font-headline mb-2">
-        Welcome, {profile?.fullName.split(" ")[0]}!
-      </h1>
-      <p className="text-muted-foreground mb-8">
-        Here&apos;s your personal health dashboard.
-      </p>
-
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
         <Button size="lg" asChild className="h-auto py-4">
           <Link href="/dashboard" className="flex flex-col items-center">

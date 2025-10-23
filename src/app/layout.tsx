@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { AuthProvider } from '@/lib/auth';
 import { LanguageProvider } from '@/lib/language';
 import { Toaster } from '@/components/ui/toaster';
 import { Inter, Poppins } from 'next/font/google';
@@ -33,13 +32,11 @@ export default function RootLayout({
           poppins.variable
         )}
       >
-        <AuthProvider>
-          <LanguageProvider>
-            <OfflineIndicator />
-            {children}
-            <Toaster />
-          </LanguageProvider>
-        </AuthProvider>
+        <LanguageProvider>
+          <OfflineIndicator />
+          {children}
+          <Toaster />
+        </LanguageProvider>
       </body>
     </html>
   );

@@ -1,37 +1,28 @@
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { CheckCircle, HeartPulse, MessageSquare, ShieldCheck } from 'lucide-react';
+import { HeartPulse, MessageSquare, ShieldCheck } from 'lucide-react';
 import placeHolderImages from '@/lib/placeholder-images.json';
+import GetStartedForm from '@/components/GetStartedForm';
 
 const features = [
   {
     icon: <HeartPulse className="w-8 h-8 text-primary" />,
     title: 'Verified Doctors',
     description: 'Connect with board-certified doctors across various specialties, ensuring you receive expert care.',
-    image: placeHolderImages.placeholderImages.find(p => p.id === "1"),
-    hint: 'doctor smiling'
   },
   {
     icon: <MessageSquare className="w-8 h-8 text-primary" />,
     title: 'AI Health Assistant',
     description: 'Get instant answers to your health questions from Medibot, our intelligent AI-powered health assistant.',
-    image: placeHolderImages.placeholderImages.find(p => p.id === "2"),
-    hint: 'robot medical'
   },
   {
     icon: <ShieldCheck className="w-8 h-8 text-primary" />,
     title: 'Secure & Private',
     description: 'Your health data is encrypted and stored securely, ensuring your privacy and confidentiality.',
-    image: placeHolderImages.placeholderImages.find(p => p.id === "3"),
-    hint: 'data security'
   },
 ];
 
 export default function Home() {
-  const heroImage = placeHolderImages.placeholderImages.find(p => p.id === "hero");
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -45,27 +36,10 @@ export default function Home() {
               <p className="mt-6 text-lg text-gray-600 dark:text-gray-300">
                 MediLink bridges the gap between rural and urban healthcare access. Connect with verified doctors, get instant AI-powered health advice, and manage your health with ease.
               </p>
-              <div className="mt-8 flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:justify-center sm:space-x-4">
-                <Button asChild size="lg" className="font-bold">
-                  <Link href="/signup">Get Started</Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="font-bold">
-                  <Link href="/about">Learn More</Link>
-                </Button>
+              <div className="mt-8 max-w-lg mx-auto">
+                <GetStartedForm />
               </div>
             </div>
-            {heroImage && (
-              <div className="mt-12">
-                 <Image
-                  src={heroImage.imageUrl}
-                  alt={heroImage.description}
-                  width={1200}
-                  height={600}
-                  data-ai-hint={heroImage.imageHint}
-                  className="rounded-lg shadow-2xl mx-auto"
-                />
-              </div>
-            )}
           </div>
         </section>
         

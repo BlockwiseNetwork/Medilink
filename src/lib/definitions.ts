@@ -18,3 +18,7 @@ export interface Message {
     role: 'user' | 'bot';
     content: string;
 }
+
+export interface SimpleUser {
+    email: string;
+}
