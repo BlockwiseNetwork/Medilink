@@ -47,37 +47,42 @@ export default function GetStartedForm() {
 
   if (!isFormVisible) {
     return (
-        <div className="flex flex-col sm:flex-row gap-4 items-center">
+        <div className="flex justify-center">
              <Button size="lg" className="w-full sm:w-auto" onClick={() => setFormVisible(true)}>
                 Get Started
-             </Button>
-             <Button size="lg" className="w-full sm:w-auto" variant="outline" asChild>
-                <Link href="/dashboard">Continue as Guest</Link>
              </Button>
         </div>
     );
   }
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex w-full items-start space-x-2">
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem className="flex-1">
-              <FormControl>
-                <Input placeholder="Enter your email to get started" {...field} className="h-11 text-base"/>
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit" size="lg" className="h-11" disabled={loading}>
-          {loading && <Spinner className="mr-2" />}
-          Submit
-        </Button>
-      </form>
-    </Form>
+      <div className="max-w-md mx-auto">
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="flex w-full items-start space-x-2">
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem className="flex-1">
+                  <FormControl>
+                    <Input placeholder="Enter your email to get started" {...field} className="h-11 text-base"/>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button type="submit" size="lg" className="h-11" disabled={loading}>
+              {loading && <Spinner className="mr-2" />}
+              Submit
+            </Button>
+          </form>
+        </Form>
+        <p className="mt-4 text-sm text-muted-foreground">
+            or{" "}
+            <Link href="/dashboard" className="text-primary hover:underline">
+             Continue as Guest
+            </Link>
+        </p>
+    </div>
   );
 }

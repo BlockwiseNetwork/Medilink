@@ -31,31 +31,29 @@ export default function Home() {
       <Header />
       <main className="flex-grow">
         <section className="bg-white dark:bg-gray-900">
-            <div className="container mx-auto px-6 py-16">
-                 <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div className="max-w-xl">
-                        <h1 className="text-4xl font-headline font-bold text-gray-800 dark:text-white md:text-5xl lg:text-6xl">
-                            Access quality healthcare anytime, anywhere.
-                        </h1>
-                        <p className="mt-6 text-lg text-gray-600 dark:text-gray-300">
-                            MediLink bridges the gap between rural and urban healthcare access. Connect with verified doctors, get instant AI-powered health advice, and manage your health with ease.
-                        </p>
-                        <div className="mt-8">
-                            <GetStartedForm />
-                        </div>
+            <div className="container mx-auto px-6 py-16 text-center">
+                 <div className="max-w-2xl mx-auto">
+                    <h1 className="text-4xl font-headline font-bold text-gray-800 dark:text-white md:text-5xl lg:text-6xl">
+                        Access quality healthcare anytime, anywhere.
+                    </h1>
+                    <p className="mt-6 text-lg text-gray-600 dark:text-gray-300">
+                        MediLink bridges the gap between rural and urban healthcare access. Connect with verified doctors, get instant AI-powered health advice, and manage your health with ease.
+                    </p>
+                    <div className="mt-8">
+                        <GetStartedForm />
                     </div>
-                    <div>
-                        {heroImage && (
-                            <Image
-                                src={heroImage.imageUrl}
-                                alt={heroImage.description}
-                                width={600}
-                                height={400}
-                                data-ai-hint={heroImage.imageHint}
-                                className="rounded-lg shadow-xl"
-                            />
-                        )}
-                    </div>
+                </div>
+                <div className="mt-12 flex justify-center">
+                    {heroImage && (
+                        <Image
+                            src={heroImage.imageUrl}
+                            alt={heroImage.description}
+                            width={800}
+                            height={500}
+                            data-ai-hint={heroImage.imageHint}
+                            className="rounded-lg shadow-xl"
+                        />
+                    )}
                 </div>
             </div>
         </section>
