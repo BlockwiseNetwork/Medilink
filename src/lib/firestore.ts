@@ -1,3 +1,4 @@
+"use client";
 import { doc, setDoc, getDoc, collection, getDocs, writeBatch } from "firebase/firestore";
 import { db } from "./firebase";
 import { Doctor, UserProfile } from "./definitions";
@@ -9,6 +10,10 @@ export const createUserProfile = async (
   email: string,
   role: "Patient" | "Doctor"
 ) => {
+  if (!db) {
+      console.error("Firestore is not initialized");
+      return;
+  }
   try {
     await setDoc(doc(db, "users", uid), {
       uid,
@@ -24,6 +29,10 @@ export const createUserProfile = async (
 
 // Get a user profile from Firestore
 export const getUserProfile = async (uid: string): Promise<UserProfile | null> => {
+    if (!db) {
+      console.error("Firestore is not initialized");
+      return null;
+  }
   try {
     const docRef = doc(db, "users", uid);
     const docSnap = await getDoc(docRef);
@@ -42,6 +51,10 @@ export const getUserProfile = async (uid: string): Promise<UserProfile | null> =
 
 // Get all doctors from Firestore
 export const getDoctors = async (): Promise<Doctor[]> => {
+    if (!db) {
+      console.error("Firestore is not initialized");
+      return [];
+  }
     try {
         const querySnapshot = await getDocs(collection(db, "doctors"));
         return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Doctor));
@@ -53,10 +66,13 @@ export const getDoctors = async (): Promise<Doctor[]> => {
 
 // Seed initial doctor data if the collection is empty
 export const seedInitialData = async () => {
+    if (!db) {
+        console.error("Firestore is not initialized");
+        return;
+    }
     const doctorsCollection = collection(db, 'doctors');
     const snapshot = await getDocs(doctorsCollection);
 
-    // For this app, we will clear and re-seed data on every load for demo purposes.
     if (!snapshot.empty) {
         const batch = writeBatch(db);
         snapshot.docs.forEach(doc => {
@@ -68,7 +84,7 @@ export const seedInitialData = async () => {
     console.log("Seeding new doctor data...");
     const batch = writeBatch(db);
     const demoDoctors: Omit<Doctor, 'id'>[] = [
-        { name: "Dr. Ime Umoh", specialty: "General Practitioner", city: "Uyo", rating: 4.9, contact: "08012345678" },
+        { name: "Dr. Ime Umoh", specialty: "General Practitioner", city: "Uyo", rating: 4.9, contact: "08012345678", imageId: "doctor2" },
     ];
 
     demoDoctors.forEach(doctor => {

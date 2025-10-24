@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Button } from "../ui/button";
@@ -18,6 +19,7 @@ export default function PatientDashboard() {
     async function fetchDoctors() {
       setLoading(true);
       try {
+        // This function will only run on the client, so `db` will be initialized
         await seedInitialData(); // Ensure demo data exists
         const fetchedDoctors = await getDoctors();
         setDoctors(fetchedDoctors);
