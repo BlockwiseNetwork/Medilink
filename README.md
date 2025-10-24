@@ -1,3 +1,4 @@
+git status
 # MediLink
 
 This is a Next.js web app called MediLink, built with Firebase and Genkit. MediLink connects patients and doctors with an AI health assistant (“Medibot”) and supports both Doctor and Patient roles.
