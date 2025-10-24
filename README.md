@@ -1,4 +1,3 @@
-git status
 # MediLink
 
 This is a Next.js web app called MediLink, built with Firebase and Genkit. MediLink connects patients and doctors with an AI health assistant (“Medibot”) and supports both Doctor and Patient roles.
@@ -59,4 +58,3 @@ To deploy your application:
 1.  **Connect your Git Repository:** Connect your GitHub repository to Firebase App Hosting, Vercel, or Netlify.
 2.  **Set Environment Variables:** In your hosting provider's dashboard, set the same environment variables that you defined in your `.env.local` file. Make sure to include both the `NEXT_PUBLIC_` Firebase variables and the `GOOGLE_GENAI_API_KEY`.
 3.  **Deploy:** Trigger a deployment. The hosting provider will build and deploy your Next.js application.
-# redeploy
