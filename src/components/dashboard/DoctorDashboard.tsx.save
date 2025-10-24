@@ -13,9 +13,9 @@ export default function DoctorDashboard() {
     <div>
       <div className="flex justify-between items-start mb-8">
         <div>
-      <h1 className="text-3xl font-bold font-headline mb-2">
-        Welcome, Dr. {user?.displayName || "Guest"}!
-      </h1>
+          <h1 className="text-3xl font-bold font-headline mb-2">
+            Welcome, Dr. {profile?.fullName.split(" ").slice(1).join(" ")}!
+          </h1>
           <p className="text-muted-foreground">
             Here&apos;s your professional dashboard.
           </p>
@@ -54,4 +54,4 @@ export default function DoctorDashboard() {
       </div>
     </div>
   );
-}
+
