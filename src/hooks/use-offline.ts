@@ -3,13 +3,12 @@
 import { useState, useEffect } from "react";
 
 const useOffline = (): boolean => {
+  // Initialize state to false, and determine the actual status on the client.
   const [isOffline, setIsOffline] = useState(false);
 
   useEffect(() => {
-    // Check on initial load, but only on the client
-    if (typeof window !== "undefined") {
-      setIsOffline(!window.navigator.onLine);
-    }
+    // Check on initial load, only on the client.
+    setIsOffline(!window.navigator.onLine);
     
     const handleOnline = () => setIsOffline(false);
     const handleOffline = () => setIsOffline(true);
