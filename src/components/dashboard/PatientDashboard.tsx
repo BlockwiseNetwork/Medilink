@@ -10,18 +10,20 @@ import { getDoctors, seedInitialData } from "@/lib/firestore";
 import DoctorCard from "./DoctorCard";
 import Spinner from "../ui/spinner";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
+import { useFirestore } from "@/firebase";
 
 export default function PatientDashboard() {
   const [doctors, setDoctors] = useState<Doctor[]>([]);
   const [loading, setLoading] = useState(true);
+  const firestore = useFirestore();
 
   useEffect(() => {
     async function fetchDoctors() {
+      if (!firestore) return;
       setLoading(true);
       try {
-        // This function will only run on the client, so `db` will be initialized
-        await seedInitialData(); // Ensure demo data exists
-        const fetchedDoctors = await getDoctors();
+        await seedInitialData(firestore); // Ensure demo data exists
+        const fetchedDoctors = await getDoctors(firestore);
         setDoctors(fetchedDoctors);
       } catch (error) {
         console.error("Error fetching doctors:", error);
@@ -30,7 +32,7 @@ export default function PatientDashboard() {
       }
     }
     fetchDoctors();
-  }, []);
+  }, [firestore]);
 
   return (
     <div>

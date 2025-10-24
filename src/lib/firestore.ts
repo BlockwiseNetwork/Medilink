@@ -1,10 +1,10 @@
 "use client";
-import { doc, setDoc, getDoc, collection, getDocs, writeBatch } from "firebase/firestore";
-import { db } from "./firebase";
+import { doc, setDoc, getDoc, collection, getDocs, writeBatch, type Firestore } from "firebase/firestore";
 import { Doctor, UserProfile } from "./definitions";
 
 // Create a user profile in Firestore
 export const createUserProfile = async (
+  db: Firestore,
   uid: string,
   fullName: string,
   email: string,
@@ -28,7 +28,7 @@ export const createUserProfile = async (
 };
 
 // Get a user profile from Firestore
-export const getUserProfile = async (uid: string): Promise<UserProfile | null> => {
+export const getUserProfile = async (db: Firestore, uid: string): Promise<UserProfile | null> => {
     if (!db) {
       console.error("Firestore is not initialized");
       return null;
@@ -50,7 +50,7 @@ export const getUserProfile = async (uid: string): Promise<UserProfile | null> =
 };
 
 // Get all doctors from Firestore
-export const getDoctors = async (): Promise<Doctor[]> => {
+export const getDoctors = async (db: Firestore): Promise<Doctor[]> => {
     if (!db) {
       console.error("Firestore is not initialized");
       return [];
@@ -65,7 +65,7 @@ export const getDoctors = async (): Promise<Doctor[]> => {
 }
 
 // Seed initial doctor data if the collection is empty
-export const seedInitialData = async () => {
+export const seedInitialData = async (db: Firestore) => {
     if (!db) {
         console.error("Firestore is not initialized");
         return;
@@ -73,12 +73,10 @@ export const seedInitialData = async () => {
     const doctorsCollection = collection(db, 'doctors');
     const snapshot = await getDocs(doctorsCollection);
 
-    if (!snapshot.empty) {
-        const batch = writeBatch(db);
-        snapshot.docs.forEach(doc => {
-            batch.delete(doc.ref);
-        });
-        await batch.commit();
+    if (snapshot.docs.length > 0) {
+      // Data already exists, no need to seed.
+      // We are not deleting old data anymore to prevent data loss on every page load.
+      return;
     }
     
     console.log("Seeding new doctor data...");

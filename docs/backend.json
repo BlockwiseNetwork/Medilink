@@ -1,0 +1,73 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "Represents a user's profile in the application.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "The user's unique ID from Firebase Authentication."
+        },
+        "fullName": {
+          "type": "string",
+          "description": "The user's full name."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "The user's email address."
+        },
+        "role": {
+          "type": "string",
+          "description": "The user's role in the application.",
+          "enum": ["Patient", "Doctor"]
+        }
+      },
+      "required": ["uid", "email", "role"]
+    },
+    "Doctor": {
+      "title": "Doctor",
+      "description": "Represents a doctor's profile.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "specialty": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "rating": {
+          "type": "number"
+        },
+        "contact": {
+          "type": "string"
+        },
+        "imageId": {
+          "type": "string"
+        }
+      },
+      "required": ["name", "specialty", "city", "rating", "contact"]
+    }
+  },
+  "auth": {
+    "providers": ["anonymous", "google.com", "password"]
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": {
+        "$ref": "#/entities/UserProfile"
+      },
+      "description": "Stores public information about a user."
+    },
+    "/doctors": {
+      "schema": {
+        "$ref": "#/entities/Doctor"
+      },
+      "description": "Stores profiles of doctors."
+    }
+  }
+}

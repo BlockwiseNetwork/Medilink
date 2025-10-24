@@ -5,6 +5,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { Inter, Poppins } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import OfflineIndicator from '@/components/OfflineIndicator';
+import { FirebaseClientProvider } from '@/firebase/client-provider';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const poppins = Poppins({
@@ -32,11 +33,13 @@ export default function RootLayout({
           poppins.variable
         )}
       >
-        <LanguageProvider>
-          <OfflineIndicator />
-          {children}
-          <Toaster />
-        </LanguageProvider>
+        <FirebaseClientProvider>
+          <LanguageProvider>
+            <OfflineIndicator />
+            {children}
+            <Toaster />
+          </LanguageProvider>
+        </FirebaseClientProvider>
       </body>
     </html>
   );

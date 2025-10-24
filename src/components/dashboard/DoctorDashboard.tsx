@@ -1,13 +1,13 @@
 "use client";
 
-import { useAuth } from "@/hooks/use-auth";
+import { useUser } from "@/firebase";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { Switch } from "../ui/switch";
 import { Label } from "../ui/label";
 
 export default function DoctorDashboard() {
-  const { user } = useAuth();
+  const { data: user } = useUser();
 
   return (
     <div>
