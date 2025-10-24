@@ -38,8 +38,10 @@ export default function GetStartedForm() {
     // Simulate a network request
     await new Promise(resolve => setTimeout(resolve, 500));
     
-    // Store email in localStorage
-    localStorage.setItem("userEmail", values.email);
+    // Store email in localStorage - this is safe as it's in an event handler
+    if (typeof window !== 'undefined') {
+        localStorage.setItem("userEmail", values.email);
+    }
     
     router.push("/dashboard");
     setLoading(false);

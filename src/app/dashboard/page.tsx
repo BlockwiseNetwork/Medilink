@@ -2,21 +2,26 @@
 
 import PatientDashboard from "@/components/dashboard/PatientDashboard";
 import { useEffect, useState } from "react";
+import { useUser } from "@/firebase";
 
 export default function DashboardPage() {
-    const [userEmail, setUserEmail] = useState<string | null>(null);
+    const { data: user } = useUser();
     const [userName, setUserName] = useState<string>('Guest');
 
     useEffect(() => {
-        const email = localStorage.getItem('userEmail');
-        setUserEmail(email);
-        if (email) {
-            const name = email.split('@')[0];
-            // Capitalize first letter
-            const capitalizedName = name.charAt(0).toUpperCase() + name.slice(1);
-            setUserName(capitalizedName);
+        if (user) {
+            setUserName(user.displayName || user.email?.split('@')[0] || 'User');
+        } else {
+            const email = typeof window !== 'undefined' ? localStorage.getItem('userEmail') : null;
+            if (email) {
+                const name = email.split('@')[0];
+                const capitalizedName = name.charAt(0).toUpperCase() + name.slice(1);
+                setUserName(capitalizedName);
+            } else {
+                setUserName('Guest');
+            }
         }
-    }, []);
+    }, [user]);
 
 
   return (
