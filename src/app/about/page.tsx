@@ -5,13 +5,6 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import placeHolderImages from '@/lib/placeholder-images.json';
-
-const teamMembers = [
-  { name: 'Boluwatife Adebayo', role: 'Lead Software Engineer', imageId: 'team2' },
-  { name: 'Aisha Ibrahim', role: 'AI & Backend Specialist', imageId: 'team3' },
-  { name: 'Efe Okoro', role: 'Product & UX Designer', imageId: 'team4' },
-];
 
 export default function AboutPage() {
   return (

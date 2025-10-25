@@ -6,7 +6,7 @@ import Link from "next/link";
 import { MessageSquare, Stethoscope, Wallet } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Doctor } from "@/lib/definitions";
-import { getDoctors, seedInitialData } from "@/lib/firestore";
+import { getDoctors } from "@/lib/firestore";
 import DoctorCard from "./DoctorCard";
 import Spinner from "../ui/spinner";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
@@ -22,9 +22,15 @@ export default function PatientDashboard() {
       if (!firestore) return;
       setLoading(true);
       try {
-        await seedInitialData(firestore); // Ensure demo data exists
         const fetchedDoctors = await getDoctors(firestore);
-        setDoctors(fetchedDoctors);
+        if (fetchedDoctors.length === 0) {
+            // In a real app, you might not want to seed data here,
+            // but for this demo, we'll add a default doctor if none exist.
+             const defaultDoctor: Doctor = { id: "1", name: "Dr. Ime Umoh", specialty: "General Practitioner", city: "Uyo", rating: 4.9, contact: "08012345678" };
+             setDoctors([defaultDoctor]);
+        } else {
+            setDoctors(fetchedDoctors);
+        }
       } catch (error) {
         console.error("Error fetching doctors:", error);
       } finally {

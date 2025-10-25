@@ -63,33 +63,3 @@ export const getDoctors = async (db: Firestore): Promise<Doctor[]> => {
         throw new Error("Could not fetch doctors.");
     }
 }
-
-// Seed initial doctor data if the collection is empty
-export const seedInitialData = async (db: Firestore) => {
-    if (!db) {
-        console.error("Firestore is not initialized");
-        return;
-    }
-    const doctorsCollection = collection(db, 'doctors');
-    const snapshot = await getDocs(doctorsCollection);
-
-    if (snapshot.docs.length > 0) {
-      // Data already exists, no need to seed.
-      // We are not deleting old data anymore to prevent data loss on every page load.
-      return;
-    }
-    
-    console.log("Seeding new doctor data...");
-    const batch = writeBatch(db);
-    const demoDoctors: Omit<Doctor, 'id'>[] = [
-        { name: "Dr. Ime Umoh", specialty: "General Practitioner", city: "Uyo", rating: 4.9, contact: "08012345678", imageId: "doctor2" },
-    ];
-
-    demoDoctors.forEach(doctor => {
-        const docRef = doc(doctorsCollection);
-        batch.set(docRef, doctor);
-    });
-
-    await batch.commit();
-    console.log("Demo doctors have been added to Firestore.");
-};
