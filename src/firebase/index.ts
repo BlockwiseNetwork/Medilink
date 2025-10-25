@@ -1,25 +1,42 @@
+'use client';
 import { initializeApp, getApps, getApp, type FirebaseApp } from 'firebase/app';
 import { getAuth, type Auth } from 'firebase/auth';
 import { getFirestore, type Firestore } from 'firebase/firestore';
+import { useMemo } from 'react';
 
 import { firebaseConfig } from './config';
-import { FirebaseProvider, useFirebase, useFirebaseApp, useAuth, useFirestore } from './provider';
 import { FirebaseClientProvider } from './client-provider';
-import { useUser } from './auth/use-user';
-import { useDoc } from './firestore/use-doc';
-import { useCollection } from './firestore/use-collection';
-import { useMemo } from 'react';
+import {
+  FirebaseProvider,
+  useAuth,
+  useCollection,
+  useDoc,
+  useFirebase,
+  useFirebaseApp,
+  useFirestore,
+  useUser,
+} from './provider';
+
+let firebaseApp: FirebaseApp | null = null;
+let auth: Auth | null = null;
+let firestore: Firestore | null = null;
 
 function initializeFirebase(): {
   firebaseApp: FirebaseApp;
   auth: Auth;
   firestore: Firestore;
 } {
-  const firebaseApp = !getApps().length ? initializeApp(firebaseConfig) : getApp();
-  const auth = getAuth(firebaseApp);
-  const firestore = getFirestore(firebaseApp);
+  if (typeof window !== 'undefined' && !getApps().length) {
+    firebaseApp = initializeApp(firebaseConfig);
+    auth = getAuth(firebaseApp);
+    firestore = getFirestore(firebaseApp);
+  } else if (getApps().length > 0) {
+    firebaseApp = getApp();
+    auth = getAuth(firebaseApp);
+    firestore = getFirestore(firebaseApp);
+  }
 
-  return { firebaseApp, auth, firestore };
+  return { firebaseApp: firebaseApp!, auth: auth!, firestore: firestore! };
 }
 
 function useMemoFirebase<T>(factory: () => T, deps: React.DependencyList) {

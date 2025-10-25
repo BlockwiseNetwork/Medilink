@@ -35,13 +35,14 @@ export default function GetStartedForm() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setLoading(true);
-    // Simulate a network request
-    await new Promise(resolve => setTimeout(resolve, 500));
     
     // Store email in localStorage - this is safe as it's in an event handler
     if (typeof window !== 'undefined') {
         localStorage.setItem("userEmail", values.email);
     }
+    
+    // Simulate a network request
+    await new Promise(resolve => setTimeout(resolve, 500));
     
     router.push("/dashboard");
     setLoading(false);
